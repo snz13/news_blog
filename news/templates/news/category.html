@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">News blog</a>
+        <a class="navbar-brand" href="{% url 'home' %}">News blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,10 +23,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Главная</a>
+                    <a class="nav-link" href="{% url 'home' %}">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Добавить новость</a>
+                    <a class="nav-link" href="{% url 'home' %}">Добавить новость</a>
                 </li>
             </ul>
         </div>
@@ -39,7 +39,7 @@
         <div class="col-md-4">
             <div class="list-group">
                 {% for category_item in categories %}
-                <a href="/category/{{ category_item.id }}" class="list-group-item list-group-item-action">
+                <a href="{% url 'category' category_item.id %}" class="list-group-item list-group-item-action">
                     {{category_item.title}}
                 </a>
                 {% endfor %}
