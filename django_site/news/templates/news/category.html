@@ -1,42 +1,41 @@
 {% extends 'base.html' %}
 
 {% block sidebar %}
-<div class="col-md-3">
-    <div class="list-group">
-        {% for category_item in categories %}
-        <a href="{% url 'category' category_item.id %}" class="list-group-item list-group-item-action">
-            {{category_item.title}}
-        </a>
-        {% endfor %}
-    </div>
+
+<div class="list-group">
+    {% for category_item in categories %}
+    <a href="{% url 'category' category_item.id %}" class="list-group-item list-group-item-action">
+        {{category_item.title}}
+    </a>
+    {% endfor %}
 </div>
+
 {% endblock %}
 
 {% block content %}
-<div class="col-md-9">
-    {% for item in news %}
-    <div class="card">
-        <div class="card-header">
-            Категория: {{ item.category }}
-        </div>
-        <div class="card-body">
-            <div class="media-">
-                {% if item.photo %}
-                <img src="{{ item.photo.url }}" width="200" height="200">
-                {% else %}
-                <img src="https://picsum.photos/200">
-                {% endif %}
-                <div class="media-body">
-                    <h5 class="card-title">{{ item.title }}</h5>
-                    <p class="card-text">{{ item.content|truncatewords:50}}</p>
-                    <a href="#" class="btn btn-primary">Read more...</a>
-                </div>
+
+{% for item in news %}
+<div class="card">
+    <div class="card-header">
+        Категория: {{ item.category }}
+    </div>
+    <div class="card-body">
+        <div class="media-">
+            {% if item.photo %}
+            <img src="{{ item.photo.url }}" width="200" height="200">
+            {% else %}
+            <img src="https://picsum.photos/200">
+            {% endif %}
+            <div class="media-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.content|truncatewords:50}}</p>
+                <a href="#" class="btn btn-primary">Read more...</a>
             </div>
         </div>
     </div>
-    <div class="card-footer text-muted mb-3">
-        {{ item.created_at}}
-    </div>
-    {% endfor %}
 </div>
+<div class="card-footer text-muted mb-3">
+    {{ item.created_at}}
+</div>
+{% endfor %}
 {% endblock %}
