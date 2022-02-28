@@ -1,15 +1,7 @@
 {% extends 'base.html' %}
 
 {% block sidebar %}
-
-<div class="list-group">
-    {% for category_item in categories %}
-    <a href="{% url 'category' category_item.id %}" class="list-group-item list-group-item-action">
-        {{category_item.title}}
-    </a>
-    {% endfor %}
-</div>
-
+{% include 'inc/_sidebar.html' %}
 {% endblock %}
 
 {% block content %}
