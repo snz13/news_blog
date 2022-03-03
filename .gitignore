@@ -10,6 +10,8 @@ __pycache__/
 local_settings.py
 django_site/db.sqlite3
 media
+static
+*.static
 
 ### Linux ###
 *~
@@ -212,3 +214,5 @@ ENV/
 /site
 
 # End of https://www.gitignore.io/api/macos,linux,django,python,pycharm
+/django_site/static/
+/django_site/django_site/static/
