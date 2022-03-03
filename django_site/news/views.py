@@ -24,3 +24,7 @@ def view_news(request, news_id):
     news_item = get_object_or_404(News, pk=news_id)
     context = {'news_item': news_item}
     return render(request, 'news/view_news.html', context=context)
+
+
+def add_news(request):
+    return render(request, 'news/add_news.html')
