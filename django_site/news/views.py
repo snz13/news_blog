@@ -1,7 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
 
-from .models import News, Category
+from .models import News
 from .forms import NewsForm
 
 
