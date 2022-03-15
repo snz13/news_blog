@@ -8,6 +8,7 @@ class HomeNews(ListView):
     model = News
     template_name = 'news/home.html'
     context_object_name = 'news'
+    paginate_by = 2
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -22,6 +23,7 @@ class NewsByCategory(ListView):
     template_name = 'news/home.html'
     context_object_name = 'news'  # Название контекста по которому можно обращаться в шаблоне
     allow_empty = False  # Для ошибки 404, если адреса новости не существует
+    paginate_by = 2
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
